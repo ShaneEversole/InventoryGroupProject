@@ -1,0 +1,39 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+
+<div class="mt-4 p-5 bg-warning text-white rounded">
+  <h1><%= title %></h1>
+</div>
+
+<div class="container my-4">
+  <div class="row">
+    <% data.forEach((product, index) => { %>
+      <div class="col-sm-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <img src="<%= product.image_url %>" class="card-img-top" alt="<%= product.name %>">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><%= product.name %></h5>
+            <p class="text-muted small">Size: <%= product.size %> • Color: <%= product.color %></p>
+
+            <button type="button" 
+                    class="btn btn-warning btn-sm mt-auto"
+                    data-bs-toggle="modal"
+                    data-bs-target="#productModal-<%= index %>">
+              View Price & Availability
+            </button>
+          </div>
+        </div>
+      </div>
+
+      
+      <%- include('../partials/productmodal.ejs', { 
+            productIndex: index, 
+            productName: product.name, 
+            productPrice: product.price, 
+            productStock: product.stock 
+      }) %>
+    <% }); %>
+  </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
