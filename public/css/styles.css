@@ -26,3 +26,11 @@ footer {
   width: 100%;          
   border-bottom: 1px solid #ddd;
 }
+
+.contact-info li + li {
+  margin-top: 6px;
+}
+
+#form-status {
+  min-height: 1.25rem; 
+}
