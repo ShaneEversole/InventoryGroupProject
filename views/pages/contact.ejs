@@ -1,0 +1,70 @@
+<%- include('../partials/head.ejs') %>
+<%- include('../partials/menu.ejs') %>
+
+<!-- this is going to be at views/pages/contact.ejs -->
+<link rel="stylesheet" href="/css/contact.css">
+
+<div class="mt-4 p-5 bg-warning text-white rounded">
+  <h1><%= title %></h1>
+</div>
+
+<div class="container my-4">
+  <div class="row g-4">
+    <div class="col-lg-6">
+      <h2 class="h4">Reach Us</h2>
+      <p class="mb-2">We’d love to help with sizing, returns, or order questions.</p>
+      <ul class="list-unstyled contact-info">
+        <li><strong>Email:</strong> <a href="mailto:hello@clothingsurplus.example" id="fake-email">hello@clothingsurplus.example</a></li>
+        <li><strong>Phone:</strong> <span id="fake-phone">(555) 123-4567</span></li>
+        <li><strong>Hours:</strong> Mon–Fri, 9:00am–5:00pm</li>
+      </ul>
+    </div>
+
+    <div class="col-lg-6">
+      <form id="contact-form" class="card p-3 p-md-4" novalidate>
+        <h3 class="h5 mb-3">Send Us a Message</h3>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Name<span class="text-danger">*</span></label>
+          <input type="text" id="name" name="name" class="form-control" placeholder="Your name" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+          <input type="email" id="email" name="email" class="form-control" placeholder="you@example.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone (optional)</label>
+          <input type="tel" id="phone" name="phone" class="form-control" placeholder="(555) 123-4567">
+        </div>
+
+        <div class="mb-3">
+          <label for="message" class="form-label">Message<span class="text-danger">*</span></label>
+          <textarea id="message" name="message" class="form-control" rows="4" placeholder="Tell us about your question" required></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="attachments" class="form-label">Attach files (optional)</label>
+          <input type="file" id="attachments" name="attachments" class="form-control" multiple>
+          <div id="attached-list" class="form-text mt-2"></div>
+        </div>
+
+        <div class="d-flex gap-2">
+          <button type="submit" class="btn btn-warning">Send Message</button>
+          <button type="button" id="clear-btn" class="btn btn-outline-secondary">Clear</button>
+        </div>
+
+        <div id="form-status" class="mt-3" aria-live="polite"></div>
+        <small class="text-muted d-block mt-2">
+          Demo only: messages are not sent to a server.
+        </small>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<script defer src="/js/contact.js"></script>
+
+<%- include('../partials/footer.ejs') %>
